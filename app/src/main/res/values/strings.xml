@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">StadFm</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_article_details">Article Details</string>
+    <!-- OLD -->
+    <string name="facebook_app_id" translatable="true">1915809215121323</string>
+    <string name="fb_login_protocol_scheme">fb1915809215121323</string>
+
+    <!-- new -->
+    <!--<string name="facebook_app_id" translatable="true">585114661918991</string>-->
+    <!--<string name="fb_login_protocol_scheme">fb585114661918991</string>-->
+
+    <!-- Change the following strings as required -->
+
+    //default_notification_channel_id
+
+
+    <string name="user_name">User Name</string>
+
+    <string name="category">unclassified</string>
+    <string name="add_topic">Add Topic</string>
+    <string name="article">Articles</string>
+    <string name="title_activity_news_feed_home">NewsFeedHome</string>
+    <string name="trending_stories">Trending Stories</string>
+    <string name="newsfeed">Newsfeed</string>
+    <string name="setting">Setting</string>
+    <string name="your_stories">Your Stories</string>
+    <string name="title_word">Title</string>
+    <string name="summary">Summary</string>
+    <string name="saved_article">Saved Articles</string>
+    <string name="your_topics">Your Topics</string>
+    <string name="add_or_remove_topics">Add or remove topics</string>
+    <string name="add_topics">Add Topics</string>
+    <string name="save_article_to_read">Save article to read later</string>
+    <string name="dismiss">DISMISS</string>
+    <string name="search">Search</string>
+    <string name="next">next</string>
+    <string name="logout">LogOut</string>
+    <string name="signFB">SIGN-UP WITH FACEBOOK</string>
+    <string name="posted">posted</string>
+    <string name="postedTime">..Time Ago</string>
+    <string name="readingTime">Reading Time</string>
+    <string name="articleTitle">Article Title</string>
+    <string name="facebook">Facebook</string>
+    <string name="connected">Connected</string>
+    <string name="push_notification">Push Notification</string>
+
+    <string name="share">SHARE</string>
+    <string name="no_result">No Result Found </string>
+    <string name="result_for">Results For</string>
+    <string name="article_removed">Article has been removed</string>
+    <string name="facebook_login_error">Failure to connect with FaceBook  Please check your connection or try to re-login</string>
+    <string name="have_to_choose">You have to choose a topic first!</string>
+    <string name="not_connected_to_internet">Your device is not connected to internet.</string>
+    <string name="connection_time_oet">Connection timed out</string>
+    <string name="unkown_error">An unknown error occurred.</string>
+    <string name="server_not_responding">Server is not responding.</string>
+    <string name="server_not_find_auth">server couldn\'t find the authenticated request.</string>
+    <string name="out_of_memory">Out Of Memory Error.</string>
+    <string name="parse_error">Parse Error (because of invalid data).</string>
+    <string name="bad_request">Bad Request.</string>
+    <string name="thirteen_seconds">30 Seconds Reading</string>
+    <string name="minute_reading">Minute Reading</string>
+    <string name="minutes_reading">Minutes Reading</string>
+    <string name="no_more_stories">There is no more!</string>
+    <string name="something_worng">Something Went Wrong!</string>
+    <string name="login_canceled">Log in Canceled</string>
+    <string name="logged_out">Logged out!</string>
+    <string name="content">content</string>
+
+</resources>
