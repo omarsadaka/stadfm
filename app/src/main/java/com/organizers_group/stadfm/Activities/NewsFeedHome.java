@@ -151,6 +151,7 @@ public class NewsFeedHome extends AppCompatActivity
         storiesRecyclerView.setAdapter(storiesNewsFeedAdapter);
         storiesNewsFeedAdapter.notifyDataSetChanged();
 
+
         // Retain an instance so that you can call `resetState()` for fresh searches
         EndlessRecyclerViewScrollListener mixedScrollListener = new EndlessRecyclerViewScrollListener(storiesLayoutManager) {
             @Override
@@ -159,6 +160,7 @@ public class NewsFeedHome extends AppCompatActivity
                 // Add whatever code is needed to append new items to the bottom of the list
 //                getStoriesPosts(page );
 //                showProgressView(mixedProgressBar);
+
             }
         };
         // Adds the scroll listener to RecyclerView

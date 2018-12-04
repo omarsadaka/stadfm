@@ -46,11 +46,10 @@
 
             <ImageView
                 android:id="@+id/newsfeedSearch"
-                android:layout_width="@dimen/_40dp"
-                android:layout_height="@dimen/_40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="@dimen/_5dp"
-                android:layout_margin="@dimen/_8dp"
+                android:padding="@dimen/_8dp"
                 android:backgroundTint="@color/white"
                 app:srcCompat="@drawable/search_icon" />
         </LinearLayout>

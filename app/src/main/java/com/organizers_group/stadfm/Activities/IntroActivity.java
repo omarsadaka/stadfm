@@ -93,7 +93,6 @@ public class IntroActivity extends AppCompatActivity {
 
                         if (AccessToken.getCurrentAccessToken() != null){
                             startActivity(new Intent(IntroActivity.this , MainActivity.class));
-                            getUserID(AccessToken.getCurrentAccessToken().getToken());
                             IntroActivity.this.finish();
                         }
 
@@ -122,57 +121,5 @@ public class IntroActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    public int getUserID(String accessToken) {
-        SharedPreferences sharedPreferences ;
-        sharedPreferences = getApplicationContext().getSharedPreferences(Constants.SHARED_PREF_NAME , Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit() ;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Constants.USER_ACCESS_TOKEN + accessToken,
-                response -> {
-                    try {
-                        // fetch user id
-                        int userID = response.getInt("wp_user_id");
-
-                        editor.putString(Constants.SHARED_PREFERENCE_USER_ID, String.valueOf(userID));
-                        editor.apply();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                error -> {
-                    if(error instanceof NoConnectionError){
-                        ConnectivityManager cm = (ConnectivityManager)IntroActivity.this.getSystemService( Context.CONNECTIVITY_SERVICE);
-                        NetworkInfo activeNetwork = null;
-                        if (cm != null) activeNetwork = cm.getActiveNetworkInfo();
-                        if(activeNetwork != null && activeNetwork.isConnectedOrConnecting())
-                            Toast.makeText(IntroActivity.this, R.string.not_connected_to_internet, Toast.LENGTH_SHORT).show();
-                        else Toast.makeText(IntroActivity.this, R.string.not_connected_to_internet, Toast.LENGTH_SHORT).show();
-
-                    } else if (error instanceof NetworkError || error.getCause() instanceof ConnectException){
-                        Toast.makeText(IntroActivity.this, R.string.not_connected_to_internet, Toast.LENGTH_SHORT).show();
-                    } else if (error.getCause() instanceof MalformedURLException){
-                        Toast.makeText(IntroActivity.this, R.string.bad_request, Toast.LENGTH_SHORT).show();
-                    } else if (error instanceof ParseError || error.getCause() instanceof IllegalStateException
-                            || error.getCause() instanceof JSONException
-                            || error.getCause() instanceof XmlPullParserException){
-
-                        Toast.makeText(IntroActivity.this, R.string.parse_error, Toast.LENGTH_SHORT).show();
-                    } else if (error.getCause() instanceof OutOfMemoryError){
-                        Toast.makeText(IntroActivity.this, R.string.out_of_memory, Toast.LENGTH_SHORT).show();
-                    }else if (error instanceof AuthFailureError){
-                        Toast.makeText(IntroActivity.this, R.string.server_not_find_auth, Toast.LENGTH_SHORT).show();
-                    } else if (error instanceof ServerError || error.getCause() instanceof ServerError) {
-                        Toast.makeText(IntroActivity.this, R.string.server_not_responding, Toast.LENGTH_SHORT).show();
-                    }else if (error instanceof TimeoutError || error.getCause() instanceof SocketTimeoutException
-                            || error.getCause() instanceof ConnectTimeoutException
-                            || error.getCause() instanceof SocketException) {
-
-                        Toast.makeText(IntroActivity.this, R.string.connection_time_oet, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(IntroActivity.this, R.string.unkown_error, Toast.LENGTH_SHORT).show();
-                    }
-                });
-        RequestQueueSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
-        return Integer.parseInt(sharedPreferences.getString(Constants.SHARED_PREFERENCE_USER_ID , "0"));
-    }
 }
